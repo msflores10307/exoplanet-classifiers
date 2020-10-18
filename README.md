@@ -20,13 +20,23 @@
 - model_SVM.ipynb
 - To perform the SVM model, I set the variable koi_pdisposition as my target. This variable is binary and contains only the Candidates and False Positives. Because the candidates category contains objects that may prove to be false positives later as well as exoplanets that are not yet confirmed, I thought that this model would perform poorly. However, that wasn't the case. Even before grid search optimization, the accuracy of predicted values was at around 98%. 
 
+
+
+
+
 ### Probability Tree and Random Forest Models
 - model_RandomForest.ipynb
-- To perform the random forest model, I set the variable koi_disposition as my target. I thought this model would be ideal since it would allow me to classify results into three categories (Candidates, Confirmed, False Positives), not just a binary output. However, I found that because the candidates category often overlaps with both the confirmed and false positive results, the accuracy was lower than I expected it to be. This underscores that ML is often about understanding the limitations of the data.
+- To perform the random forest model, I set the variable koi_disposition as my target. I thought this model would be ideal since it would allow me to classify results into three categories (Candidates, Confirmed, False Positives), not just a binary output. However, I found that because the candidates category often overlaps with both the confirmed and false positive results, the accuracy was lower than I expected it to be. This underscores that ML is often about understanding the limitations of the data. 
+- With an initial accuracy of 84%, the grid search optimization was not able to bring total accuracy above 89.5%! 
+- The precision for Candidate and confirmed were .77 and .79, respectively, but .99 for False positive. 
+- Despite lower quality results for both Candidate and confirmed precision and recall for False Positive were .99 and 1.00 respectively. This meanse we guessed false positive whenever false positive came up!
+- Best Parameters: {'bootstrap': True, 'max_depth': 110, 'n_estimators': 300}
+
 
 ### Challenges
 - The most time consuming part of this process was feature selection. I mostly used a visual criteria to tell which parameters were most likely to be significant meaningful. In the future, it would be great to do something more rigorous like performing t-tests or linear regressions to rate features quantitatively and have a more robust understanding about the relationships models reveal.
 - The other challenge was that gridsearch took a very long time to run, and I had to adjust the number of parameters in the grid to be able to iterate through all of them in a reasonable amount of time. If I had more time, I would perform grid-search more thoroughly. 
 
 ### Conclusion
+- Despite the lower overall accuracy, upon closer inspection, the random forest model identifies false positives better than the SVM. For that reason, the random forest model was chosen as the best model, and saved in the repo.
 - Each of my approaches had different strengths and weaknesses. To make the most of each, some compromises had to be made. For example, using the SVM required turning the target results into binary output. Also, It was frustrating having to let go of search precision in the name of performance. This underscores how machine learning is as much about engineering as it is about the math and computer science. In the future, i will try to be mindful of technical constraints when deciding on my ML strategy!
