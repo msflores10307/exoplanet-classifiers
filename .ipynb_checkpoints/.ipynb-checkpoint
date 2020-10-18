@@ -113,7 +113,7 @@
     {
      "data": {
       "text/plain": [
-       "0.8395748987854251"
+       "0.8390688259109311"
       ]
      },
      "execution_count": 6,
@@ -158,23 +158,23 @@
     {
      "data": {
       "text/plain": [
-       "[(0.3256226110078029, 'koi_score'),\n",
-       " (0.08644426802675177, 'koi_model_snr'),\n",
-       " (0.0684554990826965, 'koi_fpflag_ss'),\n",
-       " (0.06607397846072767, 'koi_fpflag_co'),\n",
-       " (0.06520280638318961, 'koi_prad'),\n",
-       " (0.04501352938830773, 'koi_depth'),\n",
-       " (0.04118730015644557, 'koi_duration_err2'),\n",
-       " (0.040500663371761766, 'koi_duration_err1'),\n",
-       " (0.03780036932190961, 'koi_duration'),\n",
-       " (0.03650276743779996, 'koi_impact'),\n",
-       " (0.034723746316213146, 'koi_fpflag_nt'),\n",
-       " (0.031044933035740477, 'koi_insol'),\n",
-       " (0.027043710142928817, 'koi_period_err1'),\n",
-       " (0.026350308387461503, 'koi_period_err2'),\n",
-       " (0.024351304447749737, 'koi_fpflag_ec'),\n",
-       " (0.02262825372553169, 'koi_impact_err1'),\n",
-       " (0.021053951306981726, 'koi_impact_err2')]"
+       "[(0.302019144455201, 'koi_score'),\n",
+       " (0.07987488820886729, 'koi_model_snr'),\n",
+       " (0.07560700527363023, 'koi_fpflag_co'),\n",
+       " (0.07086672776267536, 'koi_fpflag_ss'),\n",
+       " (0.0705504778337188, 'koi_prad'),\n",
+       " (0.045285677492701244, 'koi_duration_err1'),\n",
+       " (0.044357993495172936, 'koi_depth'),\n",
+       " (0.04386099325652351, 'koi_duration_err2'),\n",
+       " (0.04024006042857036, 'koi_fpflag_nt'),\n",
+       " (0.03978821641023794, 'koi_duration'),\n",
+       " (0.03520702950889703, 'koi_impact'),\n",
+       " (0.028821942116985064, 'koi_insol'),\n",
+       " (0.027334789244310098, 'koi_period_err2'),\n",
+       " (0.027062862546199752, 'koi_fpflag_ec'),\n",
+       " (0.02561940788336289, 'koi_period_err1'),\n",
+       " (0.023022794956164955, 'koi_impact_err1'),\n",
+       " (0.020479989126781648, 'koi_impact_err2')]"
       ]
      },
      "execution_count": 8,
@@ -208,14 +208,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 10,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "{'bootstrap': [True], 'max_depth': [80, 90, 100, 110], 'n_estimators': [100, 200, 300, 1000]}\n"
+      "{'bootstrap': [True], 'max_depth': [80, 90, 100, 110], 'max_features': [2, 3], 'min_samples_leaf': [3, 4, 5], 'min_samples_split': [8, 10, 12], 'n_estimators': [100, 200, 300, 1000]}\n"
      ]
     }
    ],
@@ -224,7 +224,7 @@
     "feature_grid = {\n",
     "    'bootstrap': [True],\n",
     "    'max_depth': [80, 90, 100, 110],\n",
-    "#     'max_features': [2, 3],\n",
+    "    'max_features': [2, 3],\n",
     "#     'min_samples_leaf': [3, 4, 5],\n",
     "#     'min_samples_split': [8, 10, 12],\n",
     "    'n_estimators': [100, 200, 300, 1000]\n",
@@ -234,7 +234,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 12,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -244,14 +244,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": null,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Fitting 5 folds for each of 16 candidates, totalling 80 fits\n"
+      "Fitting 5 folds for each of 288 candidates, totalling 1440 fits\n"
      ]
     },
     {
@@ -259,39 +259,12 @@
      "output_type": "stream",
      "text": [
       "[Parallel(n_jobs=-1)]: Using backend LokyBackend with 4 concurrent workers.\n",
-      "[Parallel(n_jobs=-1)]: Done  24 tasks      | elapsed:  1.4min\n",
-      "[Parallel(n_jobs=-1)]: Done  80 out of  80 | elapsed:  6.2min finished\n"
+      "[Parallel(n_jobs=-1)]: Done  24 tasks      | elapsed:  2.1min\n",
+      "[Parallel(n_jobs=-1)]: Done 120 tasks      | elapsed: 11.1min\n",
+      "[Parallel(n_jobs=-1)]: Done 280 tasks      | elapsed: 28.3min\n",
+      "[Parallel(n_jobs=-1)]: Done 504 tasks      | elapsed: 51.4min\n",
+      "[Parallel(n_jobs=-1)]: Done 792 tasks      | elapsed: 83.6min\n"
      ]
-    },
-    {
-     "data": {
-      "text/plain": [
-       "GridSearchCV(cv=None, error_score=nan,\n",
-       "             estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0,\n",
-       "                                              class_weight=None,\n",
-       "                                              criterion='gini', max_depth=None,\n",
-       "                                              max_features='auto',\n",
-       "                                              max_leaf_nodes=None,\n",
-       "                                              max_samples=None,\n",
-       "                                              min_impurity_decrease=0.0,\n",
-       "                                              min_impurity_split=None,\n",
-       "                                              min_samples_leaf=1,\n",
-       "                                              min_samples_split=2,\n",
-       "                                              min_weight_fraction_leaf=0.0,\n",
-       "                                              n_estimators=200, n_jobs=None,\n",
-       "                                              oob_score=False,\n",
-       "                                              random_state=None, verbose=0,\n",
-       "                                              warm_start=False),\n",
-       "             iid='deprecated', n_jobs=-1,\n",
-       "             param_grid={'bootstrap': [True], 'max_depth': [80, 90, 100, 110],\n",
-       "                         'n_estimators': [100, 200, 300, 1000]},\n",
-       "             pre_dispatch='2*n_jobs', refit=True, return_train_score=False,\n",
-       "             scoring=None, verbose=3)"
-      ]
-     },
-     "execution_count": 14,
-     "metadata": {},
-     "output_type": "execute_result"
     }
    ],
    "source": [
@@ -300,56 +273,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "{'bootstrap': True, 'max_depth': 110, 'n_estimators': 300}\n",
-      "0.8891714161703703\n",
-      "                precision    recall  f1-score   support\n",
-      "\n",
-      "     CANDIDATE       0.77      0.69      0.73       438\n",
-      "     CONFIRMED       0.79      0.83      0.81       576\n",
-      "FALSE POSITIVE       0.99      1.00      0.99       962\n",
-      "\n",
-      "      accuracy                           0.88      1976\n",
-      "     macro avg       0.85      0.84      0.84      1976\n",
-      "  weighted avg       0.88      0.88      0.88      1976\n",
-      "\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "print(grid.best_params_)\n",
-    "print(grid.best_score_)\n",
     "predictions = grid.predict(X_test)\n",
     "\n",
     "from sklearn.metrics import classification_report\n",
     "print(classification_report(y_test, predictions))"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 18,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "['model_RandomForest.sav']"
-      ]
-     },
-     "execution_count": 18,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "import joblib\n",
-    "joblib.dump(rf, 'model_RandomForest.sav')"
    ]
   }
  ],
