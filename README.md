@@ -14,12 +14,14 @@
 
 ### Data Pre-Processing
 
-Prior to creating any models I performed minmax scaling on the data. I also removed any features that were not selected, and performed the appropriate scaling.  I stored the data in a csv file called 'processed.csv', and imported this into the corressponding notebooks to create the ML model. Once in the model notebook, I removed any NaN values from the data.
+- Prior to creating any models I performed minmax scaling on the data. I also removed any features that were not selected, and performed the appropriate scaling.  I stored the data in a csv file called 'processed.csv', and imported this into the corressponding notebooks to create the ML model. Once in the model notebook, I removed any NaN values from the data.
 
 ### Support Vector Machine Model
+- model_SVM.ipynb
 - To perform the SVM model, I set the variable koi_pdisposition as my target. This variable is binary and contains only the Candidates and False Positives. Because the candidates category contains objects that may prove to be false positives later as well as exoplanets that are not yet confirmed, I thought that this model would perform poorly. However, that wasn't the case. Even before grid search optimization, the accuracy of predicted values was at around 98%. 
 
 ### Probability Tree and Random Forest Models
+- model_RandomForest.ipynb
 - To perform the random forest model, I set the variable koi_disposition as my target. I thought this model would be ideal since it would allow me to classify results into three categories (Candidates, Confirmed, False Positives), not just a binary output. However, I found that because the candidates category often overlaps with both the confirmed and false positive results, the accuracy was lower than I expected it to be. This underscores that ML is often about understanding the limitations of the data.
 
 ### Challenges
