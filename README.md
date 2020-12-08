@@ -2,7 +2,7 @@
 
 ### Introduction
 
-- The aim of this assignment was to use machine learning techniques to create models that could tell apart actual exoplanets from false positives, and compare the results. I chose two methods to compare: Support Vector Machine and Random Forest. These each have distinct srengths and weaknesses, and required looking at the data differently in order to make the most of them. The information below describes my approach and my findings.
+- The aim of this project was to use machine learning techniques to create models that could tell apart actual exoplanets from false positives, and compare the results. I chose two methods to compare: Support Vector Machine and Random Forest. These each have distinct srengths and weaknesses, and required looking at the data differently in order to make the most of them. The information below describes my approach and my findings.
 
 ### Feature selection Strategy
 
