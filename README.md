@@ -1,4 +1,4 @@
-# machine-learning-challenge
+# Exoplanet Classifiers
 
 ### Introduction
 
@@ -38,5 +38,5 @@
 - The other challenge was that gridsearch took a very long time to run, and I had to adjust the number of parameters in the grid to be able to iterate through all of them in a reasonable amount of time. If I had more time, I would perform grid-search more thoroughly. 
 
 ### Conclusion
-- Despite the lower overall accuracy, upon closer inspection, the random forest model identifies false positives better than the SVM. Both had a recall for false positives of 1, meaning whenever a result was "false positive" it was correctly classified. But, the Random Forest had a higher precicion for false positives. This means that it was less likely to assign false positive to a KOI when it was in reality a candidate for exoplanet status. For that reason, the random forest model was chosen as the best model, and saved in the repo.
+- Despite the lower overall accuracy, upon closer inspection, the random forest model identifies false positives better than the SVM. Both had a recall for false positives of 1, meaning whenever a result was "false positive" it was correctly classified. But, the Random Forest had a higher precicion for false positives. This means that it was less likely to assign false positive to a kepler object when it was in reality a candidate for exoplanet status. For that reason, the random forest model was chosen as the best model, and saved in the repo.
 - Each of my approaches had different strengths and weaknesses. To make the most of each, some compromises had to be made. For example, using the SVM required turning the target results into binary output. Also, It was frustrating having to let go of search precision in the name of performance. This underscores how machine learning is as much about engineering as it is about the math and computer science. In the future, i will try to be mindful of technical constraints when deciding on my ML strategy!
